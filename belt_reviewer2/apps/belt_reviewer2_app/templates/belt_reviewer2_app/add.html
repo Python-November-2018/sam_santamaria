@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+ <link rel="stylesheet" type="text/css" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+  <h3>Add a New Book Title and a Review:</h3>
+
+  <form action="/createbook/" method="post">
+    {% csrf_token %}
+    <label for="book_title">Book Title:</label>
+    <input type="text" name="book_title" placeholder="">
+    <label for="author">Author:</label>
+    <input type="text" name="author" placeholder="">
+    <label for="review">review:</label>
+    <input type="textarea" name="review" placeholder="">
+
+
+    <select name="rating" id="rating">
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5 selected="selected">5</option>
+    </select>
+    
+
+    <input type="submit" value="Add Book and Review">
+    <p><a href="{{ book.id }}/show">Add Book and Review</a></p>
+  </form>
+</div>
+
+</body>
+</html>

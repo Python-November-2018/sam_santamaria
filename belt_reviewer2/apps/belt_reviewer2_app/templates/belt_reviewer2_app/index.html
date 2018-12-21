@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+ <link rel="stylesheet" type="text/css" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+  <h3>Welcome, {{ request.session.first_name }}</h3>
+  <h3>Recent Book Reviews</h3>
+  {% if messages %}
+  {% for message in messages %}
+      <h2>{{ message }}</h2>
+  {% endfor %}
+{% endif %}
+
+<table>
+  <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Created At</th>
+      <th>Password</th>
+  </tr>
+  {% for user in users %}
+  <tr>
+      <td>{{ user.id }}</td>
+      <td><a href="#">{{ user.first_name }} {{ user.alias }}</a></td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.created_at }}</td>
+      <td>{{ user.pw_hash }}
+          <!-- <a href="/users/{{ user.id }}">Show</a>
+          <a href="/users/{{ user.id }}/edit">Edit</a>
+          <a href="/users/{{ user.id }}/destroy">Delete</a> -->
+      </td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+
+
+<form action="/logout" method="get">
+<input type="submit" value="Logout">
+</form>
+
+<form action="/add" method="get">
+<input type="submit" value="Add Book and Review">
+</form>
+
+</div>
+</body>
+</html>

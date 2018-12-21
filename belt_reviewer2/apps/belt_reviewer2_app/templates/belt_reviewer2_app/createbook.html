@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+ <link rel="stylesheet" type="text/css" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+  <h3>This is the book page</h3>
+  <h3>{{ book.book_title }}</h3>
+  <p>Author: Placeholder{}</p>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Book</th>
+      <th>Author</th>
+      <th>Reviewer</th>
+      <th>Rating</th>
+    </tr>
+
+    <tr>
+ <td> {{ book.id }} </td>
+ <td> {{ book.book_title }} </td>
+ <td> {{ book.author }} </td>                    
+ <td> {{ review.user.name }} </td>
+ <td> {{ review.rating }} </td>
+
+  </tr>
+
+</table>
+
+<ul>
+{% for i in books %}
+<li>
+  {{i.book_title}} | {{i.author}}
+</li>
+
+{% endfor %}
+
+<p>
+
+{{book.review}}
+{{book.rating}}
+{{review.book.author}}
+{{review.book.user}}
+{{review.book.author}}
+</p>
+</ul>
+</div>
+</body>
+</html>
